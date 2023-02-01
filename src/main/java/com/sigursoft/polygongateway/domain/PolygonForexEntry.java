@@ -1,4 +1,4 @@
-package com.sigursoft.polygongatewayjava.domain;
+package com.sigursoft.polygongateway.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

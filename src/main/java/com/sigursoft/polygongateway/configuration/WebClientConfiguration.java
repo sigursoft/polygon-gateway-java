@@ -1,4 +1,4 @@
-package com.sigursoft.polygongatewayjava.configuration;
+package com.sigursoft.polygongateway.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

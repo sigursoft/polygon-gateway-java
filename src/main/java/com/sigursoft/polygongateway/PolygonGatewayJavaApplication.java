@@ -1,4 +1,4 @@
-package com.sigursoft.polygongatewayjava;
+package com.sigursoft.polygongateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

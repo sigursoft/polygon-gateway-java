@@ -1,7 +1,7 @@
-package com.sigursoft.polygongatewayjava.controller;
+package com.sigursoft.polygongateway.controller;
 
-import com.sigursoft.polygongatewayjava.domain.ExchangeRate;
-import com.sigursoft.polygongatewayjava.service.ExchangeRateService;
+import com.sigursoft.polygongateway.domain.ExchangeRate;
+import com.sigursoft.polygongateway.service.ExchangeRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

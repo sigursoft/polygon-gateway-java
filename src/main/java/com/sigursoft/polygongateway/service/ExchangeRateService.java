@@ -1,8 +1,8 @@
-package com.sigursoft.polygongatewayjava.service;
+package com.sigursoft.polygongateway.service;
 
-import com.sigursoft.polygongatewayjava.components.PolygonWebClient;
-import com.sigursoft.polygongatewayjava.domain.ExchangeRate;
-import com.sigursoft.polygongatewayjava.domain.PolygonForexResponse;
+import com.sigursoft.polygongateway.components.PolygonWebClient;
+import com.sigursoft.polygongateway.domain.ExchangeRate;
+import com.sigursoft.polygongateway.domain.PolygonForexResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;

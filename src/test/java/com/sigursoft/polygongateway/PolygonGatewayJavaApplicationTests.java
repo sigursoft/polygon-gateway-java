@@ -1,4 +1,4 @@
-package com.sigursoft.polygongatewayjava;
+package com.sigursoft.polygongateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

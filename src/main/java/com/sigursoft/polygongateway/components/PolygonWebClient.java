@@ -1,6 +1,6 @@
-package com.sigursoft.polygongatewayjava.components;
+package com.sigursoft.polygongateway.components;
 
-import com.sigursoft.polygongatewayjava.domain.PolygonForexResponse;
+import com.sigursoft.polygongateway.domain.PolygonForexResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
