@@ -12,13 +12,12 @@ public class PolygonWebClient {
     @Autowired
     private WebClient polygon;
 
-    public PolygonForexResponse fetchPreviousDayExchangeRate(String buyCurrency, String sellCurrency) {
+    public Mono<PolygonForexResponse> fetchPreviousDayExchangeRate(String buyCurrency, String sellCurrency) {
         var currencyPair = buyCurrency + sellCurrency;
-        Mono<PolygonForexResponse> exchangeRate = polygon.get()
+        return polygon.get()
                 .uri("/v2/aggs/ticker/C:" + currencyPair + "/prev")
                 .retrieve()
                 .bodyToMono(PolygonForexResponse.class);
-        return exchangeRate.block();
     }
 
 }
