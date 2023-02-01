@@ -4,6 +4,7 @@ import com.sigursoft.polygongateway.domain.ExchangeRate;
 import com.sigursoft.polygongateway.service.ExchangeRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 import org.slf4j.Logger;
@@ -17,9 +18,9 @@ public class ExchangeRateController {
     @Autowired
     private ExchangeRateService exchangeRateService;
 
-    @GetMapping("/exchange-rate")
-    public Mono<ExchangeRate> provideExchangeRate() {
+    @GetMapping("/exchange-rate/{buyCurrency}/{sellCurrency}")
+    public Mono<ExchangeRate> provideExchangeRate(@PathVariable String buyCurrency, @PathVariable String sellCurrency) {
         logger.info("Providing exchange rate");
-        return exchangeRateService.provideExchangeRate("USD", "EUR");
+        return exchangeRateService.provideExchangeRate(buyCurrency, sellCurrency);
     }
 }

@@ -10,8 +10,12 @@ import reactor.core.publisher.Mono;
 @Service
 public class ExchangeRateService {
 
+    private final PolygonWebClient polygonWebClient;
+
     @Autowired
-    private PolygonWebClient polygonWebClient;
+    public ExchangeRateService(PolygonWebClient polygonWebClient) {
+        this.polygonWebClient = polygonWebClient;
+    }
 
     public Mono<ExchangeRate> provideExchangeRate(String buyCurrency, String sellCurrency) {
         Mono<PolygonForexResponse> polygonRate = polygonWebClient.fetchPreviousDayExchangeRate(buyCurrency, sellCurrency);
