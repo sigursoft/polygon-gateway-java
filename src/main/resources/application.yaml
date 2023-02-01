@@ -1,0 +1,7 @@
+spring:
+  main:
+    banner-mode: "off"
+
+polygon:
+  baseUrl: ${POLYGON_BASE_URL:https://api.polygon.io/}
+  token: ${POLYGON_ACCESS_TOKEN:}
