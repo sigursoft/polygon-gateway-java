@@ -37,15 +37,15 @@ public class ExchangeRateServiceTest {
         String sellCurrency = "EUR";
         List<PolygonForexEntry> results = new ArrayList<>();
         results.add(new PolygonForexEntry(
-                "USDEUR",
-                1L,
-                BigDecimal.ONE,
-                BigDecimal.ONE,
-                BigDecimal.ONE,
-                BigDecimal.ONE,
-                BigDecimal.ONE,
-                Instant.now(),
-                1L
+                "C:EURUSD",
+                189479L,
+                new BigDecimal("1.0912"),
+                new BigDecimal("1.08602"),
+                new BigDecimal("1.10127"),
+                new BigDecimal("1.10327"),
+                new BigDecimal("1.0851"),
+                Instant.ofEpochMilli(1675295999999L),
+                189479L
             )
         );
         PolygonForexResponse response = new PolygonForexResponse(
@@ -55,7 +55,7 @@ public class ExchangeRateServiceTest {
                 true,
                 results,
                 "OK",
-                "79c061995d8b627b736170bc9653f15d",
+                "4f73a05f3ad97ca6598a5f499c6062e3",
                 1L
         );
         when(polygonWebClient.fetchPreviousDayExchangeRate(buyCurrency, sellCurrency))
@@ -63,10 +63,11 @@ public class ExchangeRateServiceTest {
         // when
         ExchangeRate rate = exchangeRateService.provideExchangeRate(buyCurrency, sellCurrency).block();
         // then
+        var expectedRate = new BigDecimal("1.0912");
         verify(polygonWebClient).fetchPreviousDayExchangeRate(buyCurrency, sellCurrency);
         assertNotNull(rate);
         assertEquals("USD", rate.buyCurrency(), "buyCurrency should be USD");
         assertEquals("EUR", rate.sellCurrency(), "sellCurrency should be EUR");
-        assertEquals(BigDecimal.ONE, rate.rate(), "rate should be 1");
+        assertEquals(expectedRate, rate.rate(), "rate should be 1");
     }
 }
