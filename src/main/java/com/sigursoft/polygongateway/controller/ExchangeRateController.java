@@ -13,14 +13,14 @@ import org.slf4j.LoggerFactory;
 @RestController
 public class ExchangeRateController {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
-    private ExchangeRateService exchangeRateService;
+	@Autowired
+	private ExchangeRateService exchangeRateService;
 
-    @GetMapping("/exchange-rate/{buyCurrency}/{sellCurrency}")
-    public Mono<ExchangeRate> provideExchangeRate(@PathVariable String buyCurrency, @PathVariable String sellCurrency) {
-        logger.info("Providing exchange rate");
-        return exchangeRateService.provideExchangeRate(buyCurrency, sellCurrency);
-    }
+	@GetMapping(value = "/exchange-rate/{buyCurrency}/{sellCurrency}", produces = "application/json")
+	public Mono<ExchangeRate> provideExchangeRate(@PathVariable String buyCurrency, @PathVariable String sellCurrency) {
+		logger.info("Providing exchange rate");
+		return exchangeRateService.provideExchangeRate(buyCurrency, sellCurrency);
+	}
 }

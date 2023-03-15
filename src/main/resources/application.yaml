@@ -1,6 +1,11 @@
 spring:
   main:
     banner-mode: "off"
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+
+server:
+  shutdown: graceful
 
 polygon:
   baseUrl: ${POLYGON_BASE_URL:https://api.polygon.io/}
