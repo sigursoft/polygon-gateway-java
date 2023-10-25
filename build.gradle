@@ -22,7 +22,6 @@ repositories {
 dependencies {
 	// API
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	// TESTS
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
@@ -32,6 +31,8 @@ dependencies {
     // Mockito
     testImplementation 'org.mockito:mockito-core'
     testImplementation 'org.mockito:mockito-junit-jupiter'
+    // Wiremock
+    testImplementation 'org.wiremock:wiremock:3.2.0'
 }
 
 test {

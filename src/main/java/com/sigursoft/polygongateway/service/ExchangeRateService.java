@@ -18,7 +18,7 @@ public class ExchangeRateService {
 
     public Mono<ExchangeRate> provideExchangeRate(String buyCurrency, String sellCurrency) {
         var polygonRate = polygonWebClient.fetchPreviousDayExchangeRate(buyCurrency, sellCurrency);
-        return polygonRate.flatMap(
+        return polygonRate.log().flatMap(
                         polygonForexResponse -> Mono.just(
                                 new ExchangeRate(buyCurrency, sellCurrency, polygonForexResponse.results().get(0).vw())
                         )

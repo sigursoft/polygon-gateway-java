@@ -3,6 +3,7 @@ package com.sigursoft.polygongateway.service;
 import com.sigursoft.polygongateway.domain.ExchangeRate;
 import com.sigursoft.polygongateway.domain.PolygonForexEntry;
 import com.sigursoft.polygongateway.domain.PolygonForexResponse;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -31,10 +32,12 @@ public class ExchangeRateServiceTest {
 	ExchangeRateService exchangeRateService;
 
 	@Test
+    @DisplayName("should return exchange rate")
 	public void testProvideExchangeRate() {
 		// given
-		String buyCurrency = "USD";
-		String sellCurrency = "EUR";
+		var buyCurrency = "USD";
+		var sellCurrency = "EUR";
+        var expectedRate = new BigDecimal("1.0912");
 		List<PolygonForexEntry> results = new ArrayList<>();
 		results.add(new PolygonForexEntry("C:EURUSD", 189479L, new BigDecimal("1.0912"), new BigDecimal("1.08602"),
 				new BigDecimal("1.10127"), new BigDecimal("1.10327"), new BigDecimal("1.0851"),
@@ -45,7 +48,6 @@ public class ExchangeRateServiceTest {
 		// when
 		ExchangeRate rate = exchangeRateService.provideExchangeRate(buyCurrency, sellCurrency).block();
 		// then
-		var expectedRate = new BigDecimal("1.0912");
 		verify(polygonWebClient).fetchPreviousDayExchangeRate(buyCurrency, sellCurrency);
 		assertNotNull(rate);
 		assertEquals("USD", rate.buyCurrency(), "buyCurrency should be USD");
