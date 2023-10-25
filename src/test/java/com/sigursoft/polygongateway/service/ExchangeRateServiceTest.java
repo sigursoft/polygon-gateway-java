@@ -52,5 +52,4 @@ public class ExchangeRateServiceTest {
 		assertEquals("EUR", rate.sellCurrency(), "sellCurrency should be EUR");
 		assertEquals(expectedRate, rate.rate(), "rate should be 1");
 	}
-
 }
