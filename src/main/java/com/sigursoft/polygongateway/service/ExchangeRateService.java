@@ -9,18 +9,19 @@ import reactor.core.publisher.Mono;
 @Service
 public class ExchangeRateService {
 
-	private final PolygonWebClient polygonWebClient;
+    private final PolygonWebClient polygonWebClient;
 
-	@Autowired
-	public ExchangeRateService(PolygonWebClient polygonWebClient) {
-		this.polygonWebClient = polygonWebClient;
-	}
+    @Autowired
+    public ExchangeRateService(PolygonWebClient polygonWebClient) {
+        this.polygonWebClient = polygonWebClient;
+    }
 
-	public Mono<ExchangeRate> provideExchangeRate(String buyCurrency, String sellCurrency) {
-		var polygonRate = polygonWebClient.fetchPreviousDayExchangeRate(buyCurrency, sellCurrency);
-		return polygonRate
-                .flatMap(polygonForexResponse -> Mono.just(polygonForexResponse.results().get(0).vw()))
-				.flatMap(rate -> Mono.just(new ExchangeRate(buyCurrency, sellCurrency, rate)));
-	}
-
+    public Mono<ExchangeRate> provideExchangeRate(String buyCurrency, String sellCurrency) {
+        var polygonRate = polygonWebClient.fetchPreviousDayExchangeRate(buyCurrency, sellCurrency);
+        return polygonRate.flatMap(
+                        polygonForexResponse -> Mono.just(
+                                new ExchangeRate(buyCurrency, sellCurrency, polygonForexResponse.results().get(0).vw())
+                        )
+                );
+    }
 }
