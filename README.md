@@ -10,9 +10,3 @@ Run JVM version with:
 ```bash
 ./gradlew bootRun
 ```
-
-Run AOT compile into  native binary and run the application with:
-
-```bash
-./gradlew nativeRun
-```
