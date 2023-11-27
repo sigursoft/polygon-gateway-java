@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/v2/aggs/ticker/C:USDEUR/prev"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": "{\"ticker\":\"C:USDEUR\",\"queryCount\":1,\"resultsCount\":1,\"adjusted\":false,\"results\":[{\"T\":\"C:USDEUR\",\"v\":91513,\"vw\":0.9407,\"o\":0.93715,\"c\":0.94381,\"h\":0.94486,\"l\":0.93489,\"t\":1698191999999,\"n\":91513}],\"status\":\"OK\",\"request_id\":\"c4c09502c9d89d8bc16b2d88c7d3004c\",\"count\":1}\n"
+  }
+}
