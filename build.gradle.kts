@@ -3,8 +3,9 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
 	java
-	id("idea")
-	id("org.springframework.boot") version "3.3.2"
+	idea
+	jacoco
+    id("org.springframework.boot") version "3.3.4"
 }
 
 group = "com.sigursoft"
