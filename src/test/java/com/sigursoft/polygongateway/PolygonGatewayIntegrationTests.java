@@ -21,7 +21,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 public class PolygonGatewayIntegrationTests {
 
     @Container
-    static WireMockContainer wiremockServer = new WireMockContainer("wiremock/wiremock:3.3.1")
+    static WireMockContainer wiremockServer = new WireMockContainer("wiremock/wiremock:3.9.2")
             .withMappingFromResource("fx", PolygonGatewayIntegrationTests.class, "mapping.json");
 
     @DynamicPropertySource
