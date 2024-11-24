@@ -5,7 +5,7 @@ plugins {
 	java
 	idea
 	jacoco
-    id("org.springframework.boot") version "3.3.5"
+    id("org.springframework.boot") version "3.4.0"
 }
 
 group = "com.sigursoft"
